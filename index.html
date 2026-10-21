@@ -14,12 +14,16 @@
 @font-face{font-family:'Fabrica Mono';src:url(fonts/FabricaMono-Bold.otf) format('opentype');font-weight:700}
 body{margin:0}
 a{color:#F4F0E8}a:hover{color:#DDFF00}
-.kraft{background:#6E6A62 url(img/kraft.jpg) repeat;background-size:480px 480px}
+.grain-layer{position:fixed;top:-50px;left:-50px;width:calc(100% + 100px);height:calc(100% + 100px);z-index:9998;pointer-events:none;opacity:.32;background-repeat:repeat;background-image:url(img/grain.svg);animation:grain-shift .6s steps(1,end) infinite;will-change:transform}
+@keyframes grain-shift{0%{transform:translate3d(0,0,0)}12.5%{transform:translate3d(-13px,9px,0)}25%{transform:translate3d(7px,-17px,0)}37.5%{transform:translate3d(-21px,-6px,0)}50%{transform:translate3d(15px,11px,0)}62.5%{transform:translate3d(-5px,19px,0)}75%{transform:translate3d(19px,-12px,0)}87.5%{transform:translate3d(-9px,3px,0)}}
+@media (max-width:900px){.grain-layer{display:none}}
+@media (prefers-reduced-motion:reduce){.grain-layer{animation:none}}
 .m{font-family:'Fabrica Mono',ui-monospace,monospace}
 </style>
 </head>
 <body>
-<div style="position:relative;font-family:'Inter Tight',system-ui,sans-serif;color:#F4F0E8;min-width:0;overflow:hidden" class="kraft">
+<div style="position:relative;font-family:'Inter Tight',system-ui,sans-serif;color:#F4F0E8;background:#6E6A62;min-width:0;overflow:hidden">
+<div class="grain-layer" aria-hidden="true"></div>
 
 <header style="position:relative;max-width:1328px;margin:0 auto;box-sizing:border-box;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding:24px 56px">
 <a href="index.html" class="m" aria-label="LFdC, inicio" style="display:inline-block;background:#1A1A1A;color:#FFFFFF;font-size:20px;line-height:1;font-weight:400;letter-spacing:.32em;padding:9.4px 8.6px 10.6px 15px;text-decoration:none">LFdC</a>
